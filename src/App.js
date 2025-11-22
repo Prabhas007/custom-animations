@@ -31,16 +31,28 @@
 import { useState } from "react";
 import StartScreen from "./components/StartScreen";
 import Navbar from "./components/Navbar";
+import CustomCursor from "./components/CustomCursor";
+import NavbarWithFlip from "./components/NavbarWithFlip";
+import SimpleLineChart from "./components/LineChart";
+import BasicBarChart from "./components/BarChat";
+import SimplePieChart from "./components/PieChart";
+import ThreeDPie from "./components/threeDPie";
+import ChartSelector from "./components/ChartSelector";
 
 export default function App() {
   const [showStart, setShowStart] = useState(true);
 
   return (
     <>
+      <CustomCursor/>
       {showStart ? (
         <StartScreen onFinish={() => setShowStart(false)} />
       ) : (
-        <Navbar/>
+        <>
+          <Navbar/>
+          <ChartSelector/>
+        </>
+        // <NavbarWithFlip/>
       )}
     </>
   );

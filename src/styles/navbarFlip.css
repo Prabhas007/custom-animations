@@ -1,0 +1,168 @@
+/* Basic navbar */
+.navbar-flip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  gap: 12px;
+  background: var(--nav-bg, linear-gradient(90deg,#0f172a,#0b1220));
+  color: #fff;
+  position: relative;
+  z-index: 20;
+  height: 64px;
+}
+
+/* left cluster (logo + button) */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.4px;
+}
+
+/* Flip button - reset */
+.flip-button {
+  --bg: #1871f4;
+  --face: hsl(52 100% 50%);
+  --side: hsl(43 100% 48%);
+  --shadow-color: 0 0% 0%;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg);
+  color: #fff;
+  border: 1px solid rgba(0,0,0,0.12);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+  user-select: none;
+  overflow: visible;
+  height: 44px;
+  min-width: 120px;
+}
+
+.flip-button .content {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* scene area (coin) */
+.scene {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  display: inline-block;
+}
+
+/* the hole shadow */
+.hole {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 70%;
+  transform: translateZ(-8px) scale(0);
+  z-index: 10;
+}
+
+.hole::before {
+  content: "";
+  position: absolute;
+  width: 125%;
+  height: 40%;
+  border-radius: 50%;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.6);
+  box-shadow: 0 2px rgba(0,0,0,0.6) inset;
+}
+
+/* purse and coin geometry */
+.purse {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.coin {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+}
+
+/* coin core (thickness) */
+.coin__core {
+  position: absolute;
+  inset: 0;
+  width: 8px;
+  left: 50%;
+  transform: translateX(-50%) rotateY(90deg);
+  background: var(--side);
+}
+
+/* faces */
+.coin__face {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--face);
+  display: grid;
+  place-items: center;
+  color: var(--detail, #222);
+  transform-style: preserve-3d;
+}
+
+/* front face slightly forward */
+.coin__face--front {
+  transform: translateZ(4px) rotateY(180deg);
+}
+.coin__face--rear {
+  transform: translateZ(-4px);
+}
+
+/* small visual tweaks */
+.flip-button span {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* nav links on right */
+.nav-right { display:flex; align-items:center; gap:12px; }
+.nav-links { list-style:none; display:flex; gap:12px; margin:0; padding:0;}
+.nav-links a { color: inherit; text-decoration:none; opacity:0.9; }
+
+/* theme placeholder */
+.theme-placeholder {
+  padding:6px 10px;
+  border-radius:6px;
+  background: rgba(255,255,255,0.04);
+  cursor:pointer;
+  font-size:0.9rem;
+}
+
+/* small responsive */
+@media (max-width:720px){
+  .navbar-flip { padding:8px; height:56px; }
+  .flip-button { min-width:110px; }
+}
