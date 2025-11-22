@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+// import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+// import SplashAnimation from "./components/SplashAnimation";
+// import Navbar from "./components/Navbar";
 
-function App() {
+// function SplashWrapper() {
+//   const navigate = useNavigate();
+
+//   // Redirect after 5 seconds
+//   setTimeout(() => {
+//     navigate("/navbar");
+//   }, 5000);
+
+//   return <SplashAnimation />;
+// }
+
+// export default function App() {
+//   return (
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path="/" element={<SplashWrapper />} />
+//         <Route path="/navbar" element={<Navbar />} />
+//         <Route path="/home" element={<div>Home Page</div>} />
+//         <Route path="/features" element={<div>Features</div>} />
+//         <Route path="/dashboard" element={<div>Dashboard</div>} />
+//         <Route path="/contact" element={<div>Contact</div>} />
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }
+
+import { useState } from "react";
+import StartScreen from "./components/StartScreen";
+import Navbar from "./components/Navbar";
+
+export default function App() {
+  const [showStart, setShowStart] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {showStart ? (
+        <StartScreen onFinish={() => setShowStart(false)} />
+      ) : (
+        <Navbar/>
+      )}
+    </>
   );
 }
 
-export default App;

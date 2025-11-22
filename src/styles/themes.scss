@@ -1,0 +1,48 @@
+:root {
+  --bg: #ffffff;
+  --text: #111;
+  --accent: #444;
+}
+
+/* ETHER (Space / Akasha) - Light, Subtle, Openness */
+.theme-ether {
+  --bg: #f5f5f7;       // very light grey / silver
+  --text: #1a1a1a;
+  --accent: #727282;
+}
+
+/* AIR (Vayu) - Purple / Violet / Mauve */
+.theme-air {
+  --bg: #f6f1ff;
+  --text: #3d2d5e;
+  --accent: #a48bff;
+}
+
+/* FIRE (Agni) - Orange / Yellow / Red */
+.theme-fire {
+  --bg: #fff4e3;
+  --text: #7a2400;
+  --accent: #ff7a00;
+}
+
+/* WATER (Jal) - Blue */
+.theme-water {
+  --bg: #e2f3ff;
+  --text: #00344e;
+  --accent: #2196f3;
+}
+
+/* EARTH (Prithvi) - Green */
+.theme-earth {
+  --bg: #e7f5e7;
+  --text: #1c3b1c;
+  --accent: #4caf50;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s ease;
+  font-family: "Inter", sans-serif;
+}
